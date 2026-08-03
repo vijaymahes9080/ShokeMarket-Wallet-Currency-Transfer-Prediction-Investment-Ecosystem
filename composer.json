@@ -1,0 +1,12 @@
+{
+    "name": "shokemarket/fintech-platform",
+    "description": "ShokeMarket - Global Real-Time FinTech Platform for Wallet, Currency Transfer, Prediction & Investment Ecosystem",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vijay Mahes",
+            "email": "Vijaypradhap2004@gmail.com"
+        }
+    ],
+    "require": {}
+}

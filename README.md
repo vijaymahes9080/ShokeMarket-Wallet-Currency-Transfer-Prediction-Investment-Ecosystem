@@ -1,17 +1,19 @@
+<div align="center">
+
 # ⚡ ShokeMarket – Global Real-Time FinTech Super-App
 
 > **Next-Generation Financial Ecosystem combining Multi-Currency Wallet, Cross-Border Remittance, AI Market Trend Predictions, Quantum Monte Carlo Risk Simulation, Web3 ZK Liquidity Bridge, Real-Time Trading & Startup Equity Marketplace.**
 
----
+<br />
 
-### 🌐 Live Production Web App
-👉 **[Launch ShokeMarket Live Platform](https://vijaymahes9080.github.io/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem/)**
+[![Launch Web App](https://img.shields.io/badge/🌐%20LIVE%20DEMO-Launch%20ShokeMarket%20Platform-6366F1?style=for-the-badge&logoColor=white)](https://vijaymahes9080.github.io/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem/)
 
----
+<br />
 
-![ShokeMarket Platform Showcase](./assets/images/shokemarket_hero_dashboard.png)
+<img src="./assets/images/shokemarket_hero_dashboard.png" alt="ShokeMarket Hero Dashboard" width="100%" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" />
 
----
+<br />
+<br />
 
 ![React](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%206-61DAFB?style=for-the-badge&logo=react)
 ![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS%20v3-38BDF8?style=for-the-badge&logo=tailwindcss)
@@ -20,6 +22,8 @@
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)
 ![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-222222?style=for-the-badge&logo=github)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+</div>
 
 ---
 
@@ -38,14 +42,24 @@ ShokeMarket unites four global FinTech powerhouses into a single high-performanc
 
 ## 📸 Interactive Visual Showcase
 
+<div align="center">
+
 ### 🔮 1. AI "Shoke" Prediction Radar
-![AI Shoke Predictions Engine](./assets/images/shoke_ai_predictions_engine.png)
+<img src="./assets/images/shoke_ai_predictions_engine.png" alt="AI Predictions Radar" width="100%" style="border-radius: 16px;" />
+
+<br />
+<br />
 
 ### ⚛️ 2. Macroeconomic Quantum Monte Carlo Risk Simulator
-![Quantum Monte Carlo Risk Simulator](./assets/images/quantum_monte_carlo_simulator.png)
+<img src="./assets/images/quantum_monte_carlo_simulator.png" alt="Quantum Risk Simulator" width="100%" style="border-radius: 16px;" />
+
+<br />
+<br />
 
 ### 🏢 3. AngelList-Style Startup Equity Marketplace
-![Angel Startup Marketplace](./assets/images/angel_startup_marketplace.png)
+<img src="./assets/images/angel_startup_marketplace.png" alt="Angel Startup Marketplace" width="100%" style="border-radius: 16px;" />
+
+</div>
 
 ---
 
@@ -57,7 +71,7 @@ To enable GitHub Pages in your repository settings:
    - Option A: Select **Deploy from a branch** ➔ Branch: `gh-pages` / `/ (root)` ➔ Click **Save**.
    - Option B: Select **GitHub Actions** (Automated build workflow configured via `.github/workflows/deploy.yml`).
 
-Your live site URL:
+Live Platform URL:
 `https://vijaymahes9080.github.io/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem/`
 
 ---
@@ -154,14 +168,18 @@ npm run server
 
 ---
 
+<div align="center">
+
 ## 👨‍💻 Developer & Author
 
-- **Author**: Vijay Mahes
-- **Email**: [Vijaypradhap2004@gmail.com](mailto:Vijaypradhap2004@gmail.com)
-- **Repository**: [vijaymahes9080/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem](https://github.com/vijaymahes9080/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem)
+**Vijay Mahes**  
+📧 Email: [Vijaypradhap2004@gmail.com](mailto:Vijaypradhap2004@gmail.com)  
+🐙 GitHub: [vijaymahes9080](https://github.com/vijaymahes9080)
 
----
+<br />
 
 ## 📜 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+</div>

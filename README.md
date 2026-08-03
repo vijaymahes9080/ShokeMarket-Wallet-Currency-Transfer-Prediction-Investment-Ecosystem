@@ -4,6 +4,10 @@
 
 ---
 
+![ShokeMarket Platform Showcase](./assets/images/shokemarket_hero_dashboard.png)
+
+---
+
 ![React](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%206-61DAFB?style=for-the-badge&logo=react)
 ![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS%20v3-38BDF8?style=for-the-badge&logo=tailwindcss)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=for-the-badge&logo=nodedotjs)
@@ -23,6 +27,19 @@ ShokeMarket unites four global FinTech powerhouses into a single high-performanc
 - 🏢 **AngelList Startup Hub**: Invest in high-growth tech startups starting from $25 USD via SAFE note agreements.
 - ⚛️ **AI Quantum Monte Carlo Simulator**: Stress-test portfolios across 10,000 macroeconomic scenarios.
 - 🌐 **Web3 ZK Privacy Protocol**: Cross-chain FX liquidity pools with Zero-Knowledge privacy shields and yield farming.
+
+---
+
+## 📸 Interactive Visual Showcase
+
+### 🔮 1. AI "Shoke" Prediction Radar
+![AI Shoke Predictions Engine](./assets/images/shoke_ai_predictions_engine.png)
+
+### ⚛️ 2. Macroeconomic Quantum Monte Carlo Risk Simulator
+![Quantum Monte Carlo Risk Simulator](./assets/images/quantum_monte_carlo_simulator.png)
+
+### 🏢 3. AngelList-Style Startup Equity Marketplace
+![Angel Startup Marketplace](./assets/images/angel_startup_marketplace.png)
 
 ---
 

@@ -17,37 +17,30 @@ import { currencySymbols, currencyFlags } from '../services/mockData';
 export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
   const { wallet, rates, transactions } = state;
 
-  // Add Money Modal State
   const [showAddModal, setShowAddModal] = useState(false);
   const [addCurr, setAddCurr] = useState('USD');
   const [addAmount, setAddAmount] = useState('500');
   const [paymentMethod, setPaymentMethod] = useState('Stripe');
 
-  // Convert Currency State
   const [fromCurr, setFromCurr] = useState('INR');
   const [toCurr, setToCurr] = useState('USD');
   const [convertAmount, setConvertAmount] = useState('10000');
   const [convertSuccessMsg, setConvertSuccessMsg] = useState('');
 
-  // Ledger Filter
   const [filterType, setFilterType] = useState('ALL');
 
-  // Handle Add Money Submit
   const handleAddSubmit = (e) => {
     e.preventDefault();
     const amt = parseFloat(addAmount);
     if (isNaN(amt) || amt <= 0) return;
 
     onAddMoney(addCurr, amt, paymentMethod);
-
-    // Trigger confetti effect
     confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
 
     setShowAddModal(false);
     setAddAmount('500');
   };
 
-  // Handle Instant Conversion Submit
   const handleConvertSubmit = (e) => {
     e.preventDefault();
     const amt = parseFloat(convertAmount);
@@ -56,20 +49,16 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
     try {
       const tx = onConvertCurrency(fromCurr, toCurr, amt);
       setConvertSuccessMsg(`Successfully converted ${currencySymbols[fromCurr]}${amt} to ${currencySymbols[toCurr]}${tx.targetAmount.toFixed(2)}`);
-      
       confetti({ particleCount: 60, spread: 50, origin: { y: 0.7 } });
-      
       setTimeout(() => setConvertSuccessMsg(''), 5000);
     } catch (err) {
       alert(err.message);
     }
   };
 
-  // Calculate live conversion preview
   const rate = rates[fromCurr]?.[toCurr] || 1.0;
   const previewConverted = (parseFloat(convertAmount) || 0) * rate;
 
-  // Filtered ledger transactions
   const filteredTransactions = transactions.filter(tx => {
     if (filterType === 'ALL') return true;
     return tx.type.toUpperCase() === filterType;
@@ -91,7 +80,7 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
 
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-xs font-bold transition shadow-glow-emerald"
+          className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-xs font-bold transition shadow-glow-emerald shrink-0"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Express Add Money</span>
@@ -99,14 +88,14 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
       </div>
 
       {/* Currency Balances Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
         {Object.keys(wallet).map(curr => {
           const balance = wallet[curr];
           const rateToUSD = rates[curr]?.USD || 1.0;
           const usdVal = balance * rateToUSD;
 
           return (
-            <div key={curr} className="glass-panel p-5 rounded-2xl border border-slate-800 hover:border-indigo-500/50 transition relative overflow-hidden group">
+            <div key={curr} className="glass-panel p-5 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition card-structured">
               <div className="flex justify-between items-start">
                 <div className="flex items-center space-x-2">
                   <span className="text-2xl">{currencyFlags[curr]}</span>
@@ -120,13 +109,13 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
                 </span>
               </div>
 
-              <div className="mt-4">
+              <div className="my-4">
                 <p className="text-2xl font-extrabold font-mono text-white tracking-tight">
                   {currencySymbols[curr]}{balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
                 <span className="text-[10px] text-slate-500">1 {curr} = {rates[curr]?.USD} USD</span>
                 <button
                   onClick={() => { setFromCurr(curr); }}
@@ -163,7 +152,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
 
         <form onSubmit={handleConvertSubmit} className="grid grid-cols-1 md:grid-cols-7 gap-4 items-end">
           
-          {/* From Currency & Amount */}
           <div className="md:col-span-3 space-y-1">
             <label className="text-xs font-semibold text-slate-300">You Convert From</label>
             <div className="flex rounded-xl overflow-hidden glass-input">
@@ -187,7 +175,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
             <p className="text-[10px] text-slate-500">Available: {currencySymbols[fromCurr]}{wallet[fromCurr]?.toLocaleString()}</p>
           </div>
 
-          {/* Swap Indicator Icon */}
           <div className="md:col-span-1 flex items-center justify-center pb-2">
             <button
               type="button"
@@ -199,7 +186,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
             </button>
           </div>
 
-          {/* To Currency & Converted Result */}
           <div className="md:col-span-3 space-y-1">
             <label className="text-xs font-semibold text-slate-300">You Receive (Estimated)</label>
             <div className="flex rounded-xl overflow-hidden glass-input">
@@ -219,7 +205,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
             <p className="text-[10px] text-slate-400">1 {fromCurr} = {rate} {toCurr}</p>
           </div>
 
-          {/* Convert Submit Button */}
           <div className="md:col-span-7 mt-2">
             <button
               type="submit"
@@ -240,7 +225,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
             <p className="text-xs text-slate-400">Immutable ledger log for all financial events</p>
           </div>
 
-          {/* Filter Pills */}
           <div className="flex flex-wrap items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-slate-800 text-[11px]">
             {['ALL', 'TRANSFER', 'CONVERT', 'DEPOSIT', 'INVESTMENT', 'TRADE'].map(type => (
               <button
@@ -256,7 +240,6 @@ export default function WalletView({ state, onAddMoney, onConvertCurrency }) {
           </div>
         </div>
 
-        {/* Ledger Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-300">
             <thead className="bg-slate-900/80 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-800">

@@ -27,10 +27,9 @@ import { currencySymbols, currencyFlags } from '../services/mockData';
 
 const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#06b6d4', '#ec4899', '#8b5cf6'];
 
-export default function DashboardView({ state, setActiveTab, onQuickConvert, onQuickTransfer }) {
+export default function DashboardView({ state, setActiveTab }) {
   const { wallet, rates, transactions, predictions, user } = state;
 
-  // Calculate Net Worth in USD
   let totalNetWorthUSD = 0;
   const pieData = Object.keys(wallet).map(curr => {
     const amt = wallet[curr];
@@ -40,7 +39,6 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
     return { name: curr, value: parseFloat(usdVal.toFixed(2)), rawAmount: amt };
   });
 
-  // Net Worth growth chart mock data
   const growthChartData = [
     { month: 'Jan', netWorth: 18500 },
     { month: 'Feb', netWorth: 21200 },
@@ -61,21 +59,20 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
         <div className="absolute right-20 top-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-3">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               Real-Time Global System Online
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               Welcome back, <span className="text-gradient-indigo">Vijay</span> 👋
             </h1>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
               Your multi-currency wallet, AI market trend predictions, and startup investment portfolio are performing smoothly.
             </p>
           </div>
 
-          {/* Quick Transfer / Convert Call to Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
             <button
               onClick={() => setActiveTab('transfer')}
               className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-glow-indigo"
@@ -94,11 +91,11 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
         </div>
       </div>
 
-      {/* KPI Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Structured KPI Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
         
-        {/* Total Net Worth */}
-        <div className="glass-panel p-5 rounded-2xl border border-slate-800">
+        {/* Total Net Worth Card */}
+        <div className="glass-panel p-5 rounded-3xl border border-slate-800 card-structured">
           <div className="flex justify-between items-start">
             <div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Total Net Worth</p>
@@ -110,15 +107,15 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
               <Globe className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-3 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400">
+          <div className="mt-4 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>+14.2% this month</span>
             <span className="text-slate-500 font-normal ml-1">vs last month</span>
           </div>
         </div>
 
-        {/* AI Shoke Prediction Signal */}
-        <div className="glass-panel p-5 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition cursor-pointer" onClick={() => setActiveTab('predictions')}>
+        {/* AI Shoke Prediction Signal Card */}
+        <div className="glass-panel p-5 rounded-3xl border border-slate-800 hover:border-indigo-500/40 transition cursor-pointer card-structured" onClick={() => setActiveTab('predictions')}>
           <div className="flex justify-between items-start">
             <div>
               <p className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
@@ -130,13 +127,13 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
               94% BUY
             </div>
           </div>
-          <div className="mt-3 text-[11px] text-slate-400 leading-tight">
+          <div className="mt-4 text-[11px] text-slate-400 leading-tight">
             Target <span className="font-mono text-emerald-400 font-bold">₹84.15</span> (+0.85% in 24h)
           </div>
         </div>
 
-        {/* Remittance Fee Savings */}
-        <div className="glass-panel p-5 rounded-2xl border border-slate-800">
+        {/* Remittance Fee Savings Card */}
+        <div className="glass-panel p-5 rounded-3xl border border-slate-800 card-structured">
           <div className="flex justify-between items-start">
             <div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Wise Fee Savings</p>
@@ -146,13 +143,13 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
               <Zap className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-3 text-[11px] text-slate-400">
+          <div className="mt-4 text-[11px] text-slate-400">
             Saved on FX spreads vs traditional banks
           </div>
         </div>
 
-        {/* Financial Health Score */}
-        <div className="glass-panel p-5 rounded-2xl border border-slate-800">
+        {/* Financial Health Score Card */}
+        <div className="glass-panel p-5 rounded-3xl border border-slate-800 card-structured">
           <div className="flex justify-between items-start">
             <div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Shoke Health Score</p>
@@ -162,7 +159,7 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
               <ShieldCheck className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-3 flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
+          <div className="mt-4 flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
             <CheckCircle2 className="w-3.5 h-3.5" /> Excellent risk diversification
           </div>
         </div>
@@ -170,10 +167,10 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
       </div>
 
       {/* Main Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
         
         {/* Net Worth Growth Area Chart */}
-        <div className="lg:col-span-2 glass-panel p-6 rounded-3xl border border-slate-800">
+        <div className="lg:col-span-2 glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-base font-bold text-white">Portfolio Growth Projection</h3>
@@ -253,11 +250,11 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
 
       </div>
 
-      {/* Bottom Split Row: Recent Activity + AI Shoke Highlights */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Bottom Split Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         
         {/* Recent Ledger Activity */}
-        <div className="glass-panel p-6 rounded-3xl border border-slate-800">
+        <div className="glass-panel p-6 rounded-3xl border border-slate-800 card-structured">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-base font-bold text-white">Recent Transactions</h3>
             <button
@@ -294,7 +291,7 @@ export default function DashboardView({ state, setActiveTab, onQuickConvert, onQ
         </div>
 
         {/* AI Shoke Prediction Signal Highlights */}
-        <div className="glass-panel p-6 rounded-3xl border border-slate-800">
+        <div className="glass-panel p-6 rounded-3xl border border-slate-800 card-structured">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
               <Sparkles className="w-4 h-4 text-indigo-400" />

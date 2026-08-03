@@ -4,6 +4,11 @@
 
 ---
 
+### 🌐 Live Production Web App
+👉 **[Launch ShokeMarket Live Platform](https://vijaymahes9080.github.io/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem/)**
+
+---
+
 ![ShokeMarket Platform Showcase](./assets/images/shokemarket_hero_dashboard.png)
 
 ---
@@ -13,6 +18,7 @@
 ![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=for-the-badge&logo=nodedotjs)
 ![Python](https://img.shields.io/badge/AI%20Engine-Python%20%7C%20ML-3776AB?style=for-the-badge&logo=python)
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)
+![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-222222?style=for-the-badge&logo=github)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ---
@@ -40,6 +46,19 @@ ShokeMarket unites four global FinTech powerhouses into a single high-performanc
 
 ### 🏢 3. AngelList-Style Startup Equity Marketplace
 ![Angel Startup Marketplace](./assets/images/angel_startup_marketplace.png)
+
+---
+
+## 🌐 GitHub Pages Deployment Guide
+
+To enable GitHub Pages in your repository settings:
+1. Go to **Settings** ➔ **Pages** in your GitHub repository.
+2. Under **Source**:
+   - Option A: Select **Deploy from a branch** ➔ Branch: `gh-pages` / `/ (root)` ➔ Click **Save**.
+   - Option B: Select **GitHub Actions** (Automated build workflow configured via `.github/workflows/deploy.yml`).
+
+Your live site URL:
+`https://vijaymahes9080.github.io/ShokeMarket-Wallet-Currency-Transfer-Prediction-Investment-Ecosystem/`
 
 ---
 
@@ -100,7 +119,7 @@ ShokeMarket unites four global FinTech powerhouses into a single high-performanc
 | **Backend API** | Node.js, Express.js |
 | **AI / ML Pipeline** | Python 3, Time-Series Forecasting Models |
 | **Database** | PostgreSQL, In-Memory State Sync |
-| **Styling Architecture** | Custom Cyber-FinTech Glassmorphic Design System |
+| **Deployment** | GitHub Pages & GitHub Actions Workflow |
 
 ---
 
@@ -132,18 +151,6 @@ npm run build
 ```bash
 npm run server
 ```
-
----
-
-## 🔌 API Endpoints Reference
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | Engine health status check |
-| `GET` | `/api/wallet` | Fetch wallet balances & live rates |
-| `POST` | `/api/transfer` | Execute cross-border remittance |
-| `GET` | `/api/predictions` | Fetch AI Shoke market trend predictions |
-| `GET` | `/api/startups` | Fetch curated startup listings |
 
 ---
 

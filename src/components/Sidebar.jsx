@@ -7,26 +7,36 @@ import {
   TrendingUp,
   Building2,
   Bot,
-  ShieldCheck
+  ShieldCheck,
+  Cpu,
+  Link2,
+  Trophy,
+  Globe,
+  Sliders
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, badge: null },
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'wallet', label: 'Multi-Currency Wallet', icon: Wallet, badge: '6 Currencies' },
     { id: 'transfer', label: 'Money Transfer', icon: ArrowRightLeft, badge: 'Instant' },
     { id: 'predictions', label: 'AI Shoke Predictions', icon: Sparkles, badge: '94% Acc', highlight: true },
-    { id: 'trading', label: 'Trading Platform', icon: TrendingUp, badge: 'Live' },
-    { id: 'startups', label: 'Startup Hub', icon: Building2, badge: 'AngelList' },
-    { id: 'advisor', label: 'AI Advisor', icon: Bot, badge: '24/7' },
-    { id: 'security', label: 'Security & KYC', icon: ShieldCheck, badge: 'Verified' }
+    { id: 'quantum', label: 'Quantum Stress Tester', icon: Cpu, badge: '10k Scenarios' },
+    { id: 'web3', label: 'Web3 ZK Bridge', icon: Link2, badge: '18.4% APY' },
+    { id: 'quests', label: 'VIP Quests & XP', icon: Trophy, badge: 'Level 2' },
+    { id: 'sentiment', label: 'Global Sentiment Map', icon: Globe, badge: 'Live NLP' },
+    { id: 'algobot', label: 'No-Code Algo Bot', icon: Sliders, badge: 'Automation' },
+    { id: 'trading', label: 'Trading Platform', icon: TrendingUp },
+    { id: 'startups', label: 'Startup Hub', icon: Building2 },
+    { id: 'advisor', label: 'AI Advisor', icon: Bot },
+    { id: 'security', label: 'Security & KYC', icon: ShieldCheck }
   ];
 
   return (
     <aside className="w-full md:w-64 bg-slate-950/60 border-r border-slate-800/80 p-4 shrink-0">
       <div className="space-y-1">
         <p className="px-3 text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
-          Core Modules
+          FinTech Super-App Modules
         </p>
 
         {menuItems.map(item => {
@@ -62,24 +72,6 @@ export default function Sidebar({ activeTab, setActiveTab }) {
             </button>
           );
         })}
-      </div>
-
-      {/* Upgrade Banner Card */}
-      <div className="mt-8 p-4 rounded-2xl bg-gradient-to-br from-indigo-950/70 via-slate-900 to-emerald-950/40 border border-indigo-800/40 text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl pointer-events-none"></div>
-        <div className="inline-flex p-2 rounded-xl bg-indigo-500/20 text-indigo-400 mb-2">
-          <Sparkles className="w-5 h-5" />
-        </div>
-        <h4 className="text-xs font-bold text-white">Shoke Pro Ecosystem</h4>
-        <p className="text-[10px] text-slate-400 mt-1 leading-relaxed">
-          Zero-spread transfers, unlimited AI predictions & priority SAFE startup allocations.
-        </p>
-        <button
-          onClick={() => setActiveTab('predictions')}
-          className="mt-3 w-full py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold rounded-lg transition shadow-md"
-        >
-          Explore Shoke AI Pro
-        </button>
       </div>
     </aside>
   );
